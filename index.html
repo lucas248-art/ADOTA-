@@ -1,152 +1,906 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Adotaê — encontre um novo melhor amigo e transforme duas vidas através da adoção responsável.">
-  <title>Adotaê | Um lar pode mudar uma vida</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Adotaê — encontre seu novo melhor amigo e transforme uma vida através da adoção responsável."
+    >
+
+    <title>Adotaê | Um lar pode mudar uma vida</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <a href="#inicio" class="logo">🐾 <span>Adotaê</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
-      <div class="menu" id="menu">
-        <a href="#inicio">Início</a>
-        <a href="#animais">Adote</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#contato">Contato</a>
-      </div>
-      <a href="#animais" class="btn btn-nav">Quero adotar</a>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero-text">
-        <span class="tag">🐾 Adoção responsável</span>
-        <h1>Um lar pode <span>mudar uma vida.</span></h1>
-        <p>Encontre um novo melhor amigo e transforme duas vidas através da adoção.</p>
-        <div class="hero-actions">
-          <a href="#animais" class="btn">Quero adotar</a>
-          <a href="#como-funciona" class="text-link">Como funciona →</a>
+    <!-- ================================
+         HEADER
+    ================================= -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a
+                href="#inicio"
+                class="logo"
+            >
+                <span class="logo-icon">🐾</span>
+                <span>Adota<span>ê</span></span>
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Abrir menu"
+            >
+                ☰
+            </button>
+
+
+            <nav
+                class="menu"
+                id="menu"
+            >
+                <a href="#inicio">Início</a>
+                <a href="#animais">Animais</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#instituicoes">Instituições</a>
+
+                <button
+                    class="nav-favorites"
+                    id="favoritesFilter"
+                >
+                    ♡ Favoritos
+                    <span id="favoritesCount">0</span>
+                </button>
+            </nav>
+
         </div>
-        <div class="hero-stats">
-          <div><strong>+120</strong><small>animais cadastrados</small></div>
-          <div><strong>+80</strong><small>adoções realizadas</small></div>
+
+    </header>
+
+
+    <main>
+
+        <!-- ================================
+             HERO
+        ================================= -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="eyebrow">
+                        🐾 Adoção responsável
+                    </span>
+
+                    <h1>
+                        Um lar pode
+                        <span>mudar uma vida.</span>
+                    </h1>
+
+                    <p>
+                        Encontre um novo melhor amigo e dê a ele
+                        a chance de conhecer o amor de um verdadeiro lar.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#animais"
+                            class="btn btn-primary"
+                        >
+                            Encontrar um amigo
+                        </a>
+
+                        <a
+                            href="#como-funciona"
+                            class="btn btn-secondary"
+                        >
+                            Como funciona
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <div class="hero-decoration decoration-one"></div>
+                    <div class="hero-decoration decoration-two"></div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Cachorro esperando por adoção"
+                    >
+
+                    <div class="hero-badge">
+                        <strong>❤️</strong>
+
+                        <div>
+                            <b>Seu novo amigo</b>
+                            <span>pode estar aqui</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             ANIMAIS
+        ================================= -->
+
+        <section
+            class="animals-section"
+            id="animais"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            🐶🐱 Encontre seu companheiro
+                        </span>
+
+                        <h2>
+                            Animais esperando
+                            <span>por você</span>
+                        </h2>
+
+                        <p>
+                            Conheça alguns dos animais que estão
+                            procurando uma família.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FILTROS -->
+
+                <div class="filters">
+
+                    <div class="search-box">
+
+                        <span>🔎</span>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Buscar pelo nome..."
+                            aria-label="Buscar animal"
+                        >
+
+                    </div>
+
+
+                    <select id="speciesFilter">
+                        <option value="todos">
+                            Todos os animais
+                        </option>
+
+                        <option value="cachorro">
+                            Cachorros
+                        </option>
+
+                        <option value="gato">
+                            Gatos
+                        </option>
+                    </select>
+
+
+                    <select id="ageFilter">
+                        <option value="todas">
+                            Todas as idades
+                        </option>
+
+                        <option value="filhote">
+                            Filhotes
+                        </option>
+
+                        <option value="adulto">
+                            Adultos
+                        </option>
+                    </select>
+
+
+                    <select id="sizeFilter">
+                        <option value="todos">
+                            Todos os portes
+                        </option>
+
+                        <option value="pequeno">
+                            Pequeno
+                        </option>
+
+                        <option value="medio">
+                            Médio
+                        </option>
+
+                        <option value="grande">
+                            Grande
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="results-info">
+
+                    <span>
+                        <strong id="resultsCount">0</strong>
+                        animais encontrados
+                    </span>
+
+                    <button
+                        id="clearFilters"
+                        class="clear-filters"
+                    >
+                        Limpar filtros
+                    </button>
+
+                </div>
+
+
+                <!-- GRID -->
+
+                <div
+                    class="animal-grid"
+                    id="animal-grid"
+                ></div>
+
+
+                <!-- ESTADO VAZIO -->
+
+                <div
+                    class="empty-state hidden"
+                    id="emptyState"
+                >
+                    <div class="empty-icon">
+                        🐾
+                    </div>
+
+                    <h3>
+                        Nenhum animal encontrado
+                    </h3>
+
+                    <p>
+                        Tente mudar os filtros ou pesquisar outro nome.
+                    </p>
+
+                    <button
+                        class="btn btn-primary"
+                        id="clearFiltersEmpty"
+                    >
+                        Ver todos
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             COMO FUNCIONA
+        ================================= -->
+
+        <section
+            class="how-section"
+            id="como-funciona"
+        >
+
+            <div class="container">
+
+                <div class="section-heading center">
+
+                    <span class="eyebrow">
+                        💚 É simples
+                    </span>
+
+                    <h2>
+                        Como funciona?
+                    </h2>
+
+                    <p>
+                        Adotar pode ser mais simples do que você imagina.
+                    </p>
+
+                </div>
+
+
+                <div class="steps">
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <div class="step-icon">
+                            🔎
+                        </div>
+
+                        <h3>
+                            Encontre
+                        </h3>
+
+                        <p>
+                            Explore os animais disponíveis
+                            e encontre aquele que combina com você.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <div class="step-icon">
+                            ❤️
+                        </div>
+
+                        <h3>
+                            Conheça
+                        </h3>
+
+                        <p>
+                            Veja o perfil, personalidade e
+                            informações do animal escolhido.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <div class="step-icon">
+                            📝
+                        </div>
+
+                        <h3>
+                            Demonstre interesse
+                        </h3>
+
+                        <p>
+                            Preencha o formulário e mostre
+                            que está pronto para adotar.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <div class="step-number">
+                            04
+                        </div>
+
+                        <div class="step-icon">
+                            🏠
+                        </div>
+
+                        <h3>
+                            Dê um lar
+                        </h3>
+
+                        <p>
+                            Depois da avaliação, é só preparar
+                            o novo lar para seu melhor amigo.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             INSTITUIÇÕES
+        ================================= -->
+
+        <section
+            class="institutions-section"
+            id="instituicoes"
+        >
+
+            <div class="container">
+
+                <div class="section-heading center">
+
+                    <span class="eyebrow">
+                        🤝 Quem faz acontecer
+                    </span>
+
+                    <h2>
+                        Instituições parceiras
+                    </h2>
+
+                    <p>
+                        Organizações e protetores que ajudam animais
+                        a encontrar uma nova família.
+                    </p>
+
+                </div>
+
+
+                <div class="institution-grid">
+
+                    <article class="institution-card">
+
+                        <div class="institution-icon">
+                            🐾
+                        </div>
+
+                        <h3>
+                            Amigos dos Animais
+                        </h3>
+
+                        <p>
+                            Proteção e cuidado para animais
+                            em situação de abandono.
+                        </p>
+
+                        <span>
+                            📍 São Luís - MA
+                        </span>
+
+                    </article>
+
+
+                    <article class="institution-card">
+
+                        <div class="institution-icon">
+                            🏠
+                        </div>
+
+                        <h3>
+                            Lar Animal
+                        </h3>
+
+                        <p>
+                            Resgate, acolhimento e incentivo
+                            à adoção responsável.
+                        </p>
+
+                        <span>
+                            📍 São Luís - MA
+                        </span>
+
+                    </article>
+
+
+                    <article class="institution-card">
+
+                        <div class="institution-icon">
+                            💚
+                        </div>
+
+                        <h3>
+                            Projeto Patinhas
+                        </h3>
+
+                        <p>
+                            Uma rede de pessoas trabalhando
+                            por um futuro melhor para os animais.
+                        </p>
+
+                        <span>
+                            📍 Maranhão
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             CTA
+        ================================= -->
+
+        <section class="cta-section">
+
+            <div class="container">
+
+                <div class="cta">
+
+                    <div class="cta-content">
+
+                        <span class="eyebrow">
+                            ❤️ Faça a diferença
+                        </span>
+
+                        <h2>
+                            Talvez o seu novo melhor amigo
+                            esteja esperando por você.
+                        </h2>
+
+                        <p>
+                            A adoção transforma duas vidas:
+                            a do animal e a de quem decide amar.
+                        </p>
+
+                        <a
+                            href="#animais"
+                            class="btn btn-light"
+                        >
+                            Quero encontrar um amigo
+                        </a>
+
+                    </div>
+
+
+                    <div class="cta-paw">
+                        🐾
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div class="footer-brand">
+
+                <a
+                    href="#inicio"
+                    class="logo"
+                >
+                    <span class="logo-icon">🐾</span>
+                    <span>Adota<span>ê</span></span>
+                </a>
+
+                <p>
+                    Um lar pode mudar uma vida.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#animais">
+                    Animais
+                </a>
+
+                <a href="#como-funciona">
+                    Como funciona
+                </a>
+
+                <a href="#instituicoes">
+                    Instituições
+                </a>
+
+            </div>
+
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=85" alt="Cachorro esperando por adoção">
-        <div class="floating-card">❤️ <span>Seu melhor amigo<br><strong>pode estar aqui</strong></span></div>
-      </div>
-    </section>
 
-    <section class="animals" id="animais">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">🐶🐱 Encontre seu companheiro</span>
-          <h2>Talvez seu melhor amigo esteja aqui.</h2>
-          <p>Conheça animais que estão esperando por uma nova família.</p>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Adotaê. Projeto desenvolvido para incentivar a adoção responsável.
+            </p>
+
         </div>
-        <button class="favorites-filter" id="favoritesFilter">♡ Meus favoritos <span id="favoritesCount">0</span></button>
-      </div>
 
-      <div class="filters">
-        <label class="search-box">
-          <span>⌕</span>
-          <input id="searchInput" type="search" placeholder="Buscar por nome..." aria-label="Buscar por nome">
-        </label>
-        <select id="speciesFilter" aria-label="Filtrar por espécie">
-          <option value="todos">Todas as espécies</option>
-          <option value="cachorro">Cachorros</option>
-          <option value="gato">Gatos</option>
-        </select>
-        <select id="ageFilter" aria-label="Filtrar por idade">
-          <option value="todas">Todas as idades</option>
-          <option value="filhote">Filhote</option>
-          <option value="adulto">Adulto</option>
-        </select>
-        <select id="sizeFilter" aria-label="Filtrar por porte">
-          <option value="todos">Todos os portes</option>
-          <option value="pequeno">Pequeno</option>
-          <option value="medio">Médio</option>
-          <option value="grande">Grande</option>
-        </select>
-      </div>
+    </footer>
 
-      <div class="results-info"><span id="resultsCount">0</span> animais encontrados</div>
-      <div class="animal-grid" id="animal-grid"></div>
-      <div class="empty-state hidden" id="emptyState">
-        <div>🐾</div>
-        <h3>Nenhum animal encontrado</h3>
-        <p>Tente mudar os filtros ou pesquisar por outro nome.</p>
-        <button class="btn" id="clearFilters">Limpar filtros</button>
-      </div>
-    </section>
 
-    <section class="how" id="como-funciona">
-      <div class="section-title">
-        <span class="eyebrow">❤️ É mais simples do que parece</span>
-        <h2>Como funciona?</h2>
-        <p>Três passos para começar uma nova história.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><strong>01</strong><div class="step-icon">🔎</div><h3>Encontre</h3><p>Escolha um animal que combine com você e sua rotina.</p></div>
-        <div class="step"><strong>02</strong><div class="step-icon">💬</div><h3>Conheça</h3><p>Veja informações e conheça melhor seu possível novo amigo.</p></div>
-        <div class="step"><strong>03</strong><div class="step-icon">🏠</div><h3>Adote</h3><p>Demonstre seu interesse e dê início ao processo de adoção.</p></div>
-      </div>
-    </section>
+    <!-- ================================
+         MODAL PERFIL
+    ================================= -->
 
-    <section class="cta" id="contato">
-      <div>
-        <span class="eyebrow">Uma nova história começa aqui.</span>
-        <h2>Pronto para encontrar seu melhor amigo?</h2>
-        <p>O próximo capítulo pode ser ao lado de um companheiro que só precisa de uma chance.</p>
-      </div>
-      <a href="#animais" class="btn light-btn">Ver animais 🐾</a>
-    </section>
-  </main>
+    <div
+        class="modal hidden"
+        id="profileModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalName"
+    >
 
-  <footer>
-    <div><h2>🐾 Adotaê</h2><p>Um lar pode mudar uma vida.</p></div>
-    <small>© 2026 Adotaê — Projeto de estudo.</small>
-  </footer>
+        <div class="modal-content profile-modal">
 
-  <div class="modal hidden" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="modalName">
-    <div class="modal-card">
-      <button class="close-modal" data-close="profileModal" aria-label="Fechar">×</button>
-      <img id="modalImage" src="" alt="">
-      <div class="modal-content">
-        <span class="tag" id="modalSpecies"></span>
-        <h2 id="modalName"></h2>
-        <p id="modalDescription"></p>
-        <div class="details" id="modalDetails"></div>
-        <button class="btn full" id="adoptButton">Quero adotar ❤️</button>
-      </div>
+            <button
+                class="modal-close"
+                data-close="profileModal"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <div class="profile-modal-image">
+
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
+
+            </div>
+
+
+            <div class="profile-modal-info">
+
+                <span id="modalSpecies">
+                    Animal para adoção
+                </span>
+
+                <h2 id="modalName">
+                    Nome
+                </h2>
+
+                <p id="modalDescription">
+                    Descrição do animal.
+                </p>
+
+
+                <div
+                    class="modal-details"
+                    id="modalDetails"
+                ></div>
+
+
+                <button
+                    class="btn btn-primary full-btn"
+                    id="adoptButton"
+                >
+                    Quero adotar ❤️
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <div class="modal hidden" id="adoptionModal" role="dialog" aria-modal="true" aria-labelledby="adoptionTitle">
-    <div class="modal-card form-card">
-      <button class="close-modal" data-close="adoptionModal" aria-label="Fechar">×</button>
-      <div class="modal-content">
-        <span class="tag">❤️ Interesse em adotar</span>
-        <h2 id="adoptionTitle">Quero adotar!</h2>
-        <p>Preencha os dados abaixo para demonstrar seu interesse.</p>
-        <form id="adoptionForm">
-          <label>Nome completo<input name="name" required placeholder="Seu nome"></label>
-          <label>Cidade<input name="city" required placeholder="Sua cidade"></label>
-          <label>WhatsApp<input name="phone" required inputmode="tel" placeholder="(99) 99999-9999"></label>
-          <label>Conte um pouco sobre sua casa<textarea name="message" required placeholder="Ex.: moro em casa com quintal..."></textarea></label>
-          <button class="btn full" type="submit">Enviar interesse 🐾</button>
-        </form>
-        <div class="success hidden" id="successMessage">🎉 <strong>Interesse registrado!</strong><br>Em uma plataforma real, a ONG responsável entraria em contato com você.</div>
-      </div>
+
+    <!-- ================================
+         MODAL ADOÇÃO
+    ================================= -->
+
+    <div
+        class="modal hidden"
+        id="adoptionModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="adoptionTitle"
+    >
+
+        <div class="modal-content adoption-modal">
+
+            <button
+                class="modal-close"
+                data-close="adoptionModal"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <div class="form-header">
+
+                <span class="eyebrow">
+                    🏠 Interesse em adoção
+                </span>
+
+                <h2 id="adoptionTitle">
+                    Quero adotar!
+                </h2>
+
+                <p>
+                    Preencha os dados abaixo para demonstrar
+                    seu interesse na adoção.
+                </p>
+
+            </div>
+
+
+            <form id="adoptionForm">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seu@email.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="(98) 99999-9999"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="city">
+                        Cidade
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        placeholder="Sua cidade"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Por que você quer adotar?
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Conte um pouco sobre você e o lar que pretende oferecer..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary full-btn"
+                >
+                    Enviar interesse ❤️
+                </button>
+
+            </form>
+
+
+            <div
+                class="success-message hidden"
+                id="successMessage"
+            >
+
+                <div class="success-icon">
+                    🎉
+                </div>
+
+                <h3>
+                    Interesse enviado!
+                </h3>
+
+                <p>
+                    Obrigado por querer transformar uma vida.
+                    Em uma versão real do sistema, a instituição
+                    responsável entraria em contato com você.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    data-close="adoptionModal"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
