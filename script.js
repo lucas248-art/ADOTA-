@@ -8,6 +8,7 @@
 ======================================== */
 
 const animals = [
+
     {
         id: 1,
         name: "Thor",
@@ -159,60 +160,86 @@ const animals = [
             "📍 São Luís"
         ]
     }
+
 ];
 
 
 /* ========================================
-   ELEMENTOS DA PÁGINA
+   ELEMENTOS
 ======================================== */
 
-const grid = document.getElementById("animal-grid");
+const grid =
+    document.getElementById("animal-grid");
 
-const searchInput = document.getElementById("searchInput");
+const searchInput =
+    document.getElementById("searchInput");
 
-const speciesFilter = document.getElementById("speciesFilter");
+const speciesFilter =
+    document.getElementById("speciesFilter");
 
-const ageFilter = document.getElementById("ageFilter");
+const ageFilter =
+    document.getElementById("ageFilter");
 
-const sizeFilter = document.getElementById("sizeFilter");
+const sizeFilter =
+    document.getElementById("sizeFilter");
 
-const resultsCount = document.getElementById("resultsCount");
+const resultsCount =
+    document.getElementById("resultsCount");
 
-const emptyState = document.getElementById("emptyState");
+const emptyState =
+    document.getElementById("emptyState");
 
-const favoritesFilter = document.getElementById("favoritesFilter");
+const favoritesFilter =
+    document.getElementById("favoritesFilter");
 
-const favoritesCount = document.getElementById("favoritesCount");
+const favoritesCount =
+    document.getElementById("favoritesCount");
 
-const clearFilters = document.getElementById("clearFilters");
+const clearFilters =
+    document.getElementById("clearFilters");
 
-const profileModal = document.getElementById("profileModal");
+const clearFiltersEmpty =
+    document.getElementById("clearFiltersEmpty");
 
-const adoptionModal = document.getElementById("adoptionModal");
+const profileModal =
+    document.getElementById("profileModal");
 
-const modalImage = document.getElementById("modalImage");
+const adoptionModal =
+    document.getElementById("adoptionModal");
 
-const modalSpecies = document.getElementById("modalSpecies");
+const modalImage =
+    document.getElementById("modalImage");
 
-const modalName = document.getElementById("modalName");
+const modalSpecies =
+    document.getElementById("modalSpecies");
 
-const modalDescription = document.getElementById("modalDescription");
+const modalName =
+    document.getElementById("modalName");
 
-const modalDetails = document.getElementById("modalDetails");
+const modalDescription =
+    document.getElementById("modalDescription");
 
-const adoptButton = document.getElementById("adoptButton");
+const modalDetails =
+    document.getElementById("modalDetails");
 
-const adoptionForm = document.getElementById("adoptionForm");
+const adoptButton =
+    document.getElementById("adoptButton");
 
-const successMessage = document.getElementById("successMessage");
+const adoptionForm =
+    document.getElementById("adoptionForm");
 
-const menuToggle = document.getElementById("menuToggle");
+const successMessage =
+    document.getElementById("successMessage");
 
-const menu = document.getElementById("menu");
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const menu =
+    document.getElementById("menu");
 
 
 /* ========================================
-   ESTADO DO SITE
+   ESTADO
 ======================================== */
 
 let showFavorites = false;
@@ -224,9 +251,18 @@ let selectedAnimal = null;
    FAVORITOS
 ======================================== */
 
-let favorites = JSON.parse(
-    localStorage.getItem("adotae-favorites") || "[]"
-);
+let favorites =
+    JSON.parse(
+        localStorage.getItem(
+            "adotae-favorites"
+        ) || "[]"
+    );
+
+
+/* Garante que os IDs sejam números */
+
+favorites =
+    favorites.map(Number);
 
 
 /* ========================================
@@ -245,7 +281,7 @@ function saveFavorites() {
 
 
 /* ========================================
-   ATUALIZAR CONTADOR
+   CONTADOR
 ======================================== */
 
 function updateFavoritesCount() {
@@ -254,12 +290,13 @@ function updateFavoritesCount() {
         return;
     }
 
-    favoritesCount.textContent = favorites.length;
+    favoritesCount.textContent =
+        favorites.length;
 }
 
 
 /* ========================================
-   VERIFICAR SE É FAVORITO
+   VERIFICAR FAVORITO
 ======================================== */
 
 function isFavorite(id) {
@@ -278,75 +315,83 @@ function renderAnimals() {
         return;
     }
 
+
     const term =
         searchInput.value
             .toLowerCase()
             .trim();
 
+
     const species =
         speciesFilter.value;
 
+
     const age =
         ageFilter.value;
+
 
     const size =
         sizeFilter.value;
 
 
     const filteredAnimals =
-        animals.filter((animal) => {
+        animals.filter(
+            (animal) => {
 
-            const matchesSearch =
-                animal.name
-                    .toLowerCase()
-                    .includes(term);
-
-
-            const matchesSpecies =
-                species === "todos" ||
-                animal.species === species;
+                const matchesSearch =
+                    animal.name
+                        .toLowerCase()
+                        .includes(term);
 
 
-            const matchesAge =
-                age === "todas" ||
-                animal.ageGroup === age;
+                const matchesSpecies =
+                    species === "todos" ||
+                    animal.species === species;
 
 
-            const matchesSize =
-                size === "todos" ||
-                animal.size === size;
+                const matchesAge =
+                    age === "todas" ||
+                    animal.ageGroup === age;
 
 
-            const matchesFavorites =
-                !showFavorites ||
-                isFavorite(animal.id);
+                const matchesSize =
+                    size === "todos" ||
+                    animal.size === size;
 
 
-            return (
-                matchesSearch &&
-                matchesSpecies &&
-                matchesAge &&
-                matchesSize &&
-                matchesFavorites
-            );
-
-        });
+                const matchesFavorites =
+                    !showFavorites ||
+                    isFavorite(animal.id);
 
 
-    /* Limpa os cards anteriores */
+                return (
+                    matchesSearch &&
+                    matchesSpecies &&
+                    matchesAge &&
+                    matchesSize &&
+                    matchesFavorites
+                );
+
+            }
+        );
+
+
+    /* Limpa o grid */
 
     grid.innerHTML = "";
 
 
-    /* Atualiza quantidade */
+    /* Quantidade */
 
     if (resultsCount) {
+
         resultsCount.textContent =
             filteredAnimals.length;
+
     }
 
 
-    /* Se não encontrou */
+    /* Estado vazio */
 
     if (emptyState) {
 
@@ -364,10 +409,14 @@ function renderAnimals() {
         (animal, index) => {
 
             const card =
-                document.createElement("article");
+                document.createElement(
+                    "article"
+                );
+
 
             card.className =
                 "animal-card";
+
 
             card.style.animationDelay =
                 `${index * 45}ms`;
@@ -385,6 +434,7 @@ function renderAnimals() {
                         src="${animal.image}"
                         alt="${animal.name}, ${animal.species} para adoção"
                         loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=85'"
                     >
 
                     <button
@@ -396,7 +446,11 @@ function renderAnimals() {
                                 : "Adicionar aos favoritos"
                         }"
                     >
-                        ${favorite ? "♥" : "♡"}
+                        ${
+                            favorite
+                                ? "♥"
+                                : "♡"
+                        }
                     </button>
 
                 </div>
@@ -404,23 +458,19 @@ function renderAnimals() {
 
                 <div class="animal-info">
 
-                    <div>
+                    <h3>
+                        ${animal.name}
+                    </h3>
 
-                        <h3>
-                            ${animal.name}
-                        </h3>
+                    <p>
+                        ${
+                            animal.species === "gato"
+                                ? "🐱 Gata"
+                                : "🐶 Cachorro"
+                        }
 
-                        <p>
-                            ${
-                                animal.species === "gato"
-                                    ? "🐱 Gata"
-                                    : "🐶 Cachorro"
-                            }
-
-                            • ${animal.age}
-                        </p>
-
-                    </div>
+                        • ${animal.age}
+                    </p>
 
                 </div>
 
@@ -439,6 +489,7 @@ function renderAnimals() {
 
         }
     );
+
 }
 
 
@@ -450,7 +501,8 @@ function openProfile(id) {
 
     const animal =
         animals.find(
-            (item) => item.id === id
+            (item) =>
+                item.id === id
         );
 
 
@@ -459,19 +511,17 @@ function openProfile(id) {
     }
 
 
-    selectedAnimal = animal;
+    selectedAnimal =
+        animal;
 
-
-    /* Imagem */
 
     modalImage.src =
         animal.image;
 
+
     modalImage.alt =
         `Foto de ${animal.name}`;
 
-
-    /* Espécie */
 
     modalSpecies.textContent =
         animal.species === "gato"
@@ -479,19 +529,13 @@ function openProfile(id) {
             : "🐶 Cachorro para adoção";
 
 
-    /* Nome */
-
     modalName.textContent =
         animal.name;
 
 
-    /* Descrição */
-
     modalDescription.textContent =
         animal.description;
 
-
-    /* Características */
 
     modalDetails.innerHTML =
         animal.traits
@@ -502,17 +546,14 @@ function openProfile(id) {
             .join("");
 
 
-    /* Abre modal */
-
     profileModal.classList.remove(
         "hidden"
     );
 
 
-    /* Impede scroll */
-
     document.body.style.overflow =
         "hidden";
+
 }
 
 
@@ -544,11 +585,12 @@ function closeModal(modal) {
             "";
 
     }
+
 }
 
 
 /* ========================================
-   ABRIR FORMULÁRIO DE ADOÇÃO
+   ABRIR ADOÇÃO
 ======================================== */
 
 function openAdoption() {
@@ -558,12 +600,18 @@ function openAdoption() {
     }
 
 
-    closeModal(profileModal);
+    closeModal(
+        profileModal
+    );
 
 
-    document.getElementById(
-        "adoptionTitle"
-    ).textContent =
+    const title =
+        document.getElementById(
+            "adoptionTitle"
+        );
+
+
+    title.textContent =
         `Quero adotar a ${selectedAnimal.name}!`;
 
 
@@ -584,11 +632,12 @@ function openAdoption() {
 
     document.body.style.overflow =
         "hidden";
+
 }
 
 
 /* ========================================
-   EVENTOS DOS FILTROS
+   FILTROS
 ======================================== */
 
 searchInput.addEventListener(
@@ -596,15 +645,18 @@ searchInput.addEventListener(
     renderAnimals
 );
 
+
 speciesFilter.addEventListener(
     "change",
     renderAnimals
 );
 
+
 ageFilter.addEventListener(
     "change",
     renderAnimals
 );
+
 
 sizeFilter.addEventListener(
     "change",
@@ -684,7 +736,7 @@ grid.addEventListener(
 
 
 /* ========================================
-   FILTRO DE FAVORITOS
+   FAVORITOS
 ======================================== */
 
 favoritesFilter.addEventListener(
@@ -711,92 +763,112 @@ favoritesFilter.addEventListener(
    LIMPAR FILTROS
 ======================================== */
 
+function resetFilters() {
+
+    searchInput.value = "";
+
+    speciesFilter.value =
+        "todos";
+
+    ageFilter.value =
+        "todas";
+
+    sizeFilter.value =
+        "todos";
+
+    showFavorites =
+        false;
+
+
+    favoritesFilter.classList.remove(
+        "active"
+    );
+
+
+    renderAnimals();
+
+}
+
+
 clearFilters.addEventListener(
     "click",
-    () => {
-
-        searchInput.value = "";
-
-        speciesFilter.value =
-            "todos";
-
-        ageFilter.value =
-            "todas";
-
-        sizeFilter.value =
-            "todos";
-
-        showFavorites =
-            false;
-
-
-        favoritesFilter.classList.remove(
-            "active"
-        );
-
-
-        renderAnimals();
-
-    }
+    resetFilters
 );
 
 
-/* ========================================
-   BOTÕES DE FECHAR MODAL
-======================================== */
+if (clearFiltersEmpty) {
 
-document
-    .querySelectorAll("[data-close]")
-    .forEach((button) => {
+    clearFiltersEmpty.addEventListener(
+        "click",
+        resetFilters
+    );
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const modalId =
-                    button.dataset.close;
-
-                const modal =
-                    document.getElementById(
-                        modalId
-                    );
-
-                closeModal(modal);
-
-            }
-        );
-
-    });
+}
 
 
 /* ========================================
-   FECHAR MODAL CLICANDO FORA
+   BOTÕES DE FECHAR
 ======================================== */
 
 document
-    .querySelectorAll(".modal")
-    .forEach((modal) => {
+    .querySelectorAll(
+        "[data-close]"
+    )
+    .forEach(
+        (button) => {
 
-        modal.addEventListener(
-            "click",
-            (event) => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                if (
-                    event.target === modal
-                ) {
+                    const modal =
+                        document.getElementById(
+                            button.dataset.close
+                        );
+
 
                     closeModal(modal);
 
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
 /* ========================================
-   BOTÃO "QUERO ADOTAR"
+   CLICAR FORA DO MODAL
+======================================== */
+
+document
+    .querySelectorAll(".modal")
+    .forEach(
+        (modal) => {
+
+            modal.addEventListener(
+                "click",
+                (event) => {
+
+                    if (
+                        event.target ===
+                        modal
+                    ) {
+
+                        closeModal(
+                            modal
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+/* ========================================
+   BOTÃO DE ADOÇÃO
 ======================================== */
 
 adoptButton.addEventListener(
@@ -806,7 +878,7 @@ adoptButton.addEventListener(
 
 
 /* ========================================
-   FORMULÁRIO DE ADOÇÃO
+   FORMULÁRIO
 ======================================== */
 
 adoptionForm.addEventListener(
@@ -841,41 +913,62 @@ menuToggle.addEventListener(
             "open"
         );
 
+
+        const isOpen =
+            menu.classList.contains(
+                "open"
+            );
+
+
+        menuToggle.textContent =
+            isOpen
+                ? "✕"
+                : "☰";
+
     }
 );
 
 
 /* ========================================
-   FECHAR MENU AO CLICAR EM LINK
+   LINKS DO MENU
 ======================================== */
 
 document
-    .querySelectorAll(".menu a")
-    .forEach((link) => {
+    .querySelectorAll(
+        ".menu a"
+    )
+    .forEach(
+        (link) => {
 
-        link.addEventListener(
-            "click",
-            () => {
+            link.addEventListener(
+                "click",
+                () => {
 
-                menu.classList.remove(
-                    "open"
-                );
+                    menu.classList.remove(
+                        "open"
+                    );
 
-            }
-        );
+                    menuToggle.textContent =
+                        "☰";
 
-    });
+                }
+            );
+
+        }
+    );
 
 
 /* ========================================
-   TECLA ESC FECHA MODAIS
+   ESC FECHA MODAIS
 ======================================== */
 
 document.addEventListener(
     "keydown",
     (event) => {
 
-        if (event.key !== "Escape") {
+        if (
+            event.key !== "Escape"
+        ) {
             return;
         }
 
@@ -884,11 +977,15 @@ document.addEventListener(
             .querySelectorAll(
                 ".modal:not(.hidden)"
             )
-            .forEach((modal) => {
+            .forEach(
+                (modal) => {
 
-                closeModal(modal);
+                    closeModal(
+                        modal
+                    );
 
-            });
+                }
+            );
 
     }
 );
