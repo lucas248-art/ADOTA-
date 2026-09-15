@@ -1,168 +1,903 @@
+/* ========================================
+   ADOTAÊ — SCRIPT PRINCIPAL
+======================================== */
+
+
+/* ========================================
+   DADOS DOS ANIMAIS
+======================================== */
+
 const animals = [
-  {id:1,name:"Thor",species:"cachorro",age:"2 anos",ageGroup:"adulto",size:"grande",city:"São Luís",image:"https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=85",description:"Thor é brincalhão, carinhoso e cheio de energia. Adora passeios e pessoas.",traits:["🐶 Cachorro","🎂 2 anos","📏 Grande","📍 São Luís"]},
-  {id:2,name:"Luna",species:"gato",age:"1 ano",ageGroup:"adulto",size:"pequeno",city:"São Luís",image:"https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=85",description:"Luna é tranquila e carinhosa. Uma ótima companheira para quem procura uma gatinha amorosa.",traits:["🐱 Gata","🎂 1 ano","📏 Pequeno","📍 São Luís"]},
-  {id:3,name:"Max",species:"cachorro",age:"3 anos",ageGroup:"adulto",size:"medio",city:"Paço do Lumiar",image:"https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=800&q=85",description:"Max é dócil, curioso e adora brincar. Está esperando uma família para chamar de sua.",traits:["🐶 Cachorro","🎂 3 anos","📏 Médio","📍 Paço do Lumiar"]},
-  {id:4,name:"Mel",species:"cachorro",age:"7 meses",ageGroup:"filhote",size:"medio",city:"São José de Ribamar",image:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=85",description:"Mel é uma filhote alegre e muito carinhosa. Cheia de vontade de descobrir o mundo.",traits:["🐶 Cachorro","🎂 7 meses","📏 Médio","📍 São José de Ribamar"]},
-  {id:5,name:"Nina",species:"gato",age:"8 meses",ageGroup:"filhote",size:"pequeno",city:"São Luís",image:"https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=85",description:"Nina é curiosa, delicada e gosta de receber carinho. Uma pequena companheira cheia de personalidade.",traits:["🐱 Gata","🎂 8 meses","📏 Pequeno","📍 São Luís"]},
-  {id:6,name:"Bob",species:"cachorro",age:"5 anos",ageGroup:"adulto",size:"grande",city:"São Luís",image:"https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=85",description:"Bob é tranquilo e companheiro. Gosta de ambientes calmos e de estar perto das pessoas.",traits:["🐶 Cachorro","🎂 5 anos","📏 Grande","📍 São Luís"]},
-  {id:7,name:"Amora",species:"gato",age:"2 anos",ageGroup:"adulto",size:"pequeno",city:"Raposa",image:"https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=800&q=85",description:"Amora é independente, mas não dispensa um bom carinho. Está pronta para conhecer seu novo lar.",traits:["🐱 Gata","🎂 2 anos","📏 Pequeno","📍 Raposa"]},
-  {id:8,name:"Simba",species:"cachorro",age:"5 meses",ageGroup:"filhote",size:"medio",city:"São Luís",image:"https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=85",description:"Simba é um filhote sociável e brincalhão. Tem muita energia e muito amor para oferecer.",traits:["🐶 Cachorro","🎂 5 meses","📏 Médio","📍 São Luís"]}
+    {
+        id: 1,
+        name: "Thor",
+        species: "cachorro",
+        age: "2 anos",
+        ageGroup: "adulto",
+        size: "grande",
+        city: "São Luís",
+        image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Thor é brincalhão, carinhoso e cheio de energia. Adora passeios e pessoas.",
+        traits: [
+            "🐶 Cachorro",
+            "🎂 2 anos",
+            "📏 Grande",
+            "📍 São Luís"
+        ]
+    },
+
+    {
+        id: 2,
+        name: "Luna",
+        species: "gato",
+        age: "1 ano",
+        ageGroup: "adulto",
+        size: "pequeno",
+        city: "São Luís",
+        image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Luna é tranquila e carinhosa. Uma ótima companheira para quem procura uma gatinha amorosa.",
+        traits: [
+            "🐱 Gata",
+            "🎂 1 ano",
+            "📏 Pequeno",
+            "📍 São Luís"
+        ]
+    },
+
+    {
+        id: 3,
+        name: "Max",
+        species: "cachorro",
+        age: "3 anos",
+        ageGroup: "adulto",
+        size: "medio",
+        city: "Paço do Lumiar",
+        image: "https://images.unsplash.com/photo-1561037404-61cd46aa615b?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Max é dócil, curioso e adora brincar. Está esperando uma família para chamar de sua.",
+        traits: [
+            "🐶 Cachorro",
+            "🎂 3 anos",
+            "📏 Médio",
+            "📍 Paço do Lumiar"
+        ]
+    },
+
+    {
+        id: 4,
+        name: "Mel",
+        species: "cachorro",
+        age: "7 meses",
+        ageGroup: "filhote",
+        size: "medio",
+        city: "São José de Ribamar",
+        image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Mel é uma filhote alegre e muito carinhosa. Cheia de vontade de descobrir o mundo.",
+        traits: [
+            "🐶 Cachorro",
+            "🎂 7 meses",
+            "📏 Médio",
+            "📍 São José de Ribamar"
+        ]
+    },
+
+    {
+        id: 5,
+        name: "Nina",
+        species: "gato",
+        age: "8 meses",
+        ageGroup: "filhote",
+        size: "pequeno",
+        city: "São Luís",
+        image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Nina é curiosa, delicada e gosta de receber carinho. Uma pequena companheira cheia de personalidade.",
+        traits: [
+            "🐱 Gata",
+            "🎂 8 meses",
+            "📏 Pequeno",
+            "📍 São Luís"
+        ]
+    },
+
+    {
+        id: 6,
+        name: "Bob",
+        species: "cachorro",
+        age: "5 anos",
+        ageGroup: "adulto",
+        size: "grande",
+        city: "São Luís",
+        image: "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Bob é tranquilo e companheiro. Gosta de ambientes calmos e de estar perto das pessoas.",
+        traits: [
+            "🐶 Cachorro",
+            "🎂 5 anos",
+            "📏 Grande",
+            "📍 São Luís"
+        ]
+    },
+
+    {
+        id: 7,
+        name: "Amora",
+        species: "gato",
+        age: "2 anos",
+        ageGroup: "adulto",
+        size: "pequeno",
+        city: "Raposa",
+        image: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Amora é independente, mas não dispensa um bom carinho. Está pronta para conhecer seu novo lar.",
+        traits: [
+            "🐱 Gata",
+            "🎂 2 anos",
+            "📏 Pequeno",
+            "📍 Raposa"
+        ]
+    },
+
+    {
+        id: 8,
+        name: "Simba",
+        species: "cachorro",
+        age: "5 meses",
+        ageGroup: "filhote",
+        size: "medio",
+        city: "São Luís",
+        image: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=85",
+        description:
+            "Simba é um filhote sociável e brincalhão. Tem muita energia e muito amor para oferecer.",
+        traits: [
+            "🐶 Cachorro",
+            "🎂 5 meses",
+            "📏 Médio",
+            "📍 São Luís"
+        ]
+    }
 ];
 
+
+/* ========================================
+   ELEMENTOS DA PÁGINA
+======================================== */
+
 const grid = document.getElementById("animal-grid");
+
 const searchInput = document.getElementById("searchInput");
+
 const speciesFilter = document.getElementById("speciesFilter");
+
 const ageFilter = document.getElementById("ageFilter");
+
 const sizeFilter = document.getElementById("sizeFilter");
+
 const resultsCount = document.getElementById("resultsCount");
+
 const emptyState = document.getElementById("emptyState");
+
 const favoritesFilter = document.getElementById("favoritesFilter");
+
 const favoritesCount = document.getElementById("favoritesCount");
 
+const clearFilters = document.getElementById("clearFilters");
+
+const profileModal = document.getElementById("profileModal");
+
+const adoptionModal = document.getElementById("adoptionModal");
+
+const modalImage = document.getElementById("modalImage");
+
+const modalSpecies = document.getElementById("modalSpecies");
+
+const modalName = document.getElementById("modalName");
+
+const modalDescription = document.getElementById("modalDescription");
+
+const modalDetails = document.getElementById("modalDetails");
+
+const adoptButton = document.getElementById("adoptButton");
+
+const adoptionForm = document.getElementById("adoptionForm");
+
+const successMessage = document.getElementById("successMessage");
+
+const menuToggle = document.getElementById("menuToggle");
+
+const menu = document.getElementById("menu");
+
+
+/* ========================================
+   ESTADO DO SITE
+======================================== */
+
 let showFavorites = false;
+
 let selectedAnimal = null;
-let favorites = JSON.parse(localStorage.getItem("adotae-favorites") || "[]");
+
+
+/* ========================================
+   FAVORITOS
+======================================== */
+
+let favorites = JSON.parse(
+    localStorage.getItem("adotae-favorites") || "[]"
+);
+
+
+/* ========================================
+   SALVAR FAVORITOS
+======================================== */
 
 function saveFavorites() {
-  localStorage.setItem("adotae-favorites", JSON.stringify(favorites));
-  updateFavoritesCount();
+
+    localStorage.setItem(
+        "adotae-favorites",
+        JSON.stringify(favorites)
+    );
+
+    updateFavoritesCount();
 }
+
+
+/* ========================================
+   ATUALIZAR CONTADOR
+======================================== */
 
 function updateFavoritesCount() {
-  favoritesCount.textContent = favorites.length;
+
+    if (!favoritesCount) {
+        return;
+    }
+
+    favoritesCount.textContent = favorites.length;
 }
+
+
+/* ========================================
+   VERIFICAR SE É FAVORITO
+======================================== */
 
 function isFavorite(id) {
-  return favorites.includes(id);
+
+    return favorites.includes(id);
 }
+
+
+/* ========================================
+   RENDERIZAR ANIMAIS
+======================================== */
 
 function renderAnimals() {
-  const term = searchInput.value.toLowerCase().trim();
-  const species = speciesFilter.value;
-  const age = ageFilter.value;
-  const size = sizeFilter.value;
 
-  const filtered = animals.filter(animal => {
-    const matchesSearch = animal.name.toLowerCase().includes(term);
-    const matchesSpecies = species === "todos" || animal.species === species;
-    const matchesAge = age === "todas" || animal.ageGroup === age;
-    const matchesSize = size === "todos" || animal.size === size;
-    const matchesFavorites = !showFavorites || isFavorite(animal.id);
-    return matchesSearch && matchesSpecies && matchesAge && matchesSize && matchesFavorites;
-  });
+    if (!grid) {
+        return;
+    }
 
-  resultsCount.textContent = filtered.length;
-  grid.innerHTML = "";
+    const term =
+        searchInput.value
+            .toLowerCase()
+            .trim();
 
-  filtered.forEach((animal, index) => {
-    const card = document.createElement("article");
-    card.className = "animal-card";
-    card.style.animationDelay = `${index * 45}ms`;
-    card.innerHTML = `
-      <div class="animal-photo">
-        <img src="${animal.image}" alt="${animal.name}, ${animal.species} para adoção" loading="lazy">
-        <button class="favorite ${isFavorite(animal.id) ? "liked" : ""}" data-id="${animal.id}" aria-label="${isFavorite(animal.id) ? "Remover dos favoritos" : "Adicionar aos favoritos"}">${isFavorite(animal.id) ? "♥" : "♡"}</button>
-      </div>
-      <div class="animal-info">
-        <div><h3>${animal.name}</h3><p>${animal.species === "gato" ? "🐱 Gata" : "🐶 Cachorro"} • ${animal.age}</p></div>
-      </div>
-      <button class="profile-btn" data-profile="${animal.id}">Ver perfil</button>
-    `;
-    grid.appendChild(card);
-  });
+    const species =
+        speciesFilter.value;
 
-  emptyState.classList.toggle("hidden", filtered.length !== 0);
+    const age =
+        ageFilter.value;
+
+    const size =
+        sizeFilter.value;
+
+
+    const filteredAnimals =
+        animals.filter((animal) => {
+
+            const matchesSearch =
+                animal.name
+                    .toLowerCase()
+                    .includes(term);
+
+
+            const matchesSpecies =
+                species === "todos" ||
+                animal.species === species;
+
+
+            const matchesAge =
+                age === "todas" ||
+                animal.ageGroup === age;
+
+
+            const matchesSize =
+                size === "todos" ||
+                animal.size === size;
+
+
+            const matchesFavorites =
+                !showFavorites ||
+                isFavorite(animal.id);
+
+
+            return (
+                matchesSearch &&
+                matchesSpecies &&
+                matchesAge &&
+                matchesSize &&
+                matchesFavorites
+            );
+
+        });
+
+
+    /* Limpa os cards anteriores */
+
+    grid.innerHTML = "";
+
+
+    /* Atualiza quantidade */
+
+    if (resultsCount) {
+        resultsCount.textContent =
+            filteredAnimals.length;
+    }
+
+
+    /* Se não encontrou */
+
+    if (emptyState) {
+
+        emptyState.classList.toggle(
+            "hidden",
+            filteredAnimals.length !== 0
+        );
+
+    }
+
+
+    /* Cria os cards */
+
+    filteredAnimals.forEach(
+        (animal, index) => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "animal-card";
+
+            card.style.animationDelay =
+                `${index * 45}ms`;
+
+
+            const favorite =
+                isFavorite(animal.id);
+
+
+            card.innerHTML = `
+
+                <div class="animal-photo">
+
+                    <img
+                        src="${animal.image}"
+                        alt="${animal.name}, ${animal.species} para adoção"
+                        loading="lazy"
+                    >
+
+                    <button
+                        class="favorite ${favorite ? "liked" : ""}"
+                        data-id="${animal.id}"
+                        aria-label="${
+                            favorite
+                                ? "Remover dos favoritos"
+                                : "Adicionar aos favoritos"
+                        }"
+                    >
+                        ${favorite ? "♥" : "♡"}
+                    </button>
+
+                </div>
+
+
+                <div class="animal-info">
+
+                    <div>
+
+                        <h3>
+                            ${animal.name}
+                        </h3>
+
+                        <p>
+                            ${
+                                animal.species === "gato"
+                                    ? "🐱 Gata"
+                                    : "🐶 Cachorro"
+                            }
+
+                            • ${animal.age}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="profile-btn"
+                    data-profile="${animal.id}"
+                >
+                    Ver perfil
+                </button>
+
+            `;
+
+
+            grid.appendChild(card);
+
+        }
+    );
 }
+
+
+/* ========================================
+   ABRIR PERFIL
+======================================== */
 
 function openProfile(id) {
-  const animal = animals.find(a => a.id === id);
-  if (!animal) return;
-  selectedAnimal = animal;
-  document.getElementById("modalImage").src = animal.image;
-  document.getElementById("modalImage").alt = animal.name;
-  document.getElementById("modalSpecies").textContent = animal.species === "gato" ? "🐱 Gata para adoção" : "🐶 Cachorro para adoção";
-  document.getElementById("modalName").textContent = animal.name;
-  document.getElementById("modalDescription").textContent = animal.description;
-  document.getElementById("modalDetails").innerHTML = animal.traits.map(t => `<span class="detail">${t}</span>`).join("");
-  document.getElementById("profileModal").classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+
+    const animal =
+        animals.find(
+            (item) => item.id === id
+        );
+
+
+    if (!animal) {
+        return;
+    }
+
+
+    selectedAnimal = animal;
+
+
+    /* Imagem */
+
+    modalImage.src =
+        animal.image;
+
+    modalImage.alt =
+        `Foto de ${animal.name}`;
+
+
+    /* Espécie */
+
+    modalSpecies.textContent =
+        animal.species === "gato"
+            ? "🐱 Gata para adoção"
+            : "🐶 Cachorro para adoção";
+
+
+    /* Nome */
+
+    modalName.textContent =
+        animal.name;
+
+
+    /* Descrição */
+
+    modalDescription.textContent =
+        animal.description;
+
+
+    /* Características */
+
+    modalDetails.innerHTML =
+        animal.traits
+            .map(
+                (trait) =>
+                    `<span class="detail">${trait}</span>`
+            )
+            .join("");
+
+
+    /* Abre modal */
+
+    profileModal.classList.remove(
+        "hidden"
+    );
+
+
+    /* Impede scroll */
+
+    document.body.style.overflow =
+        "hidden";
 }
 
-function closeModal(id) {
-  document.getElementById(id).classList.add("hidden");
-  if (document.querySelectorAll(".modal:not(.hidden)").length === 0) document.body.style.overflow = "";
+
+/* ========================================
+   FECHAR MODAL
+======================================== */
+
+function closeModal(modal) {
+
+    if (!modal) {
+        return;
+    }
+
+
+    modal.classList.add(
+        "hidden"
+    );
+
+
+    const openModals =
+        document.querySelectorAll(
+            ".modal:not(.hidden)"
+        );
+
+
+    if (openModals.length === 0) {
+
+        document.body.style.overflow =
+            "";
+
+    }
 }
+
+
+/* ========================================
+   ABRIR FORMULÁRIO DE ADOÇÃO
+======================================== */
 
 function openAdoption() {
-  closeModal("profileModal");
-  document.getElementById("adoptionTitle").textContent = `Quero adotar a ${selectedAnimal?.name || "esse animal"}!`;
-  document.getElementById("adoptionModal").classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+
+    if (!selectedAnimal) {
+        return;
+    }
+
+
+    closeModal(profileModal);
+
+
+    document.getElementById(
+        "adoptionTitle"
+    ).textContent =
+        `Quero adotar a ${selectedAnimal.name}!`;
+
+
+    adoptionForm.classList.remove(
+        "hidden"
+    );
+
+
+    successMessage.classList.add(
+        "hidden"
+    );
+
+
+    adoptionModal.classList.remove(
+        "hidden"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
 }
 
-[searchInput, speciesFilter, ageFilter, sizeFilter].forEach(el => el.addEventListener("input", renderAnimals));
 
-grid.addEventListener("click", e => {
-  const fav = e.target.closest(".favorite");
-  const profile = e.target.closest(".profile-btn");
+/* ========================================
+   EVENTOS DOS FILTROS
+======================================== */
 
-  if (fav) {
-    const id = Number(fav.dataset.id);
-    favorites = isFavorite(id) ? favorites.filter(x => x !== id) : [...favorites, id];
-    saveFavorites();
-    renderAnimals();
-  }
+searchInput.addEventListener(
+    "input",
+    renderAnimals
+);
 
-  if (profile) openProfile(Number(profile.dataset.profile));
-});
+speciesFilter.addEventListener(
+    "change",
+    renderAnimals
+);
 
-favoritesFilter.addEventListener("click", () => {
-  showFavorites = !showFavorites;
-  favoritesFilter.classList.toggle("active", showFavorites);
-  renderAnimals();
-});
+ageFilter.addEventListener(
+    "change",
+    renderAnimals
+);
 
-document.getElementById("clearFilters").addEventListener("click", () => {
-  searchInput.value = "";
-  speciesFilter.value = "todos";
-  ageFilter.value = "todas";
-  sizeFilter.value = "todos";
-  showFavorites = false;
-  favoritesFilter.classList.remove("active");
-  renderAnimals();
-});
+sizeFilter.addEventListener(
+    "change",
+    renderAnimals
+);
 
-document.querySelectorAll("[data-close]").forEach(btn => {
-  btn.addEventListener("click", () => closeModal(btn.dataset.close));
-});
 
-document.querySelectorAll(".modal").forEach(modal => {
-  modal.addEventListener("click", e => {
-    if (e.target === modal) closeModal(modal.id);
-  });
-});
+/* ========================================
+   CLIQUES NOS CARDS
+======================================== */
 
-document.getElementById("adoptButton").addEventListener("click", openAdoption);
+grid.addEventListener(
+    "click",
+    (event) => {
 
-document.getElementById("adoptionForm").addEventListener("submit", e => {
-  e.preventDefault();
-  document.getElementById("adoptionForm").classList.add("hidden");
-  document.getElementById("successMessage").classList.remove("hidden");
-});
+        const favoriteButton =
+            event.target.closest(
+                ".favorite"
+            );
 
-document.getElementById("menuToggle").addEventListener("click", () => {
-  document.getElementById("menu").classList.toggle("open");
-});
 
-document.querySelectorAll(".menu a").forEach(link => {
-  link.addEventListener("click", () => document.getElementById("menu").classList.remove("open"));
-});
+        const profileButton =
+            event.target.closest(
+                ".profile-btn"
+            );
 
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") {
-    document.querySelectorAll(".modal:not(.hidden)").forEach(m => closeModal(m.id));
-  }
-});
+
+        /* FAVORITO */
+
+        if (favoriteButton) {
+
+            const id =
+                Number(
+                    favoriteButton.dataset.id
+                );
+
+
+            if (isFavorite(id)) {
+
+                favorites =
+                    favorites.filter(
+                        (favoriteId) =>
+                            favoriteId !== id
+                    );
+
+            } else {
+
+                favorites.push(id);
+
+            }
+
+
+            saveFavorites();
+
+            renderAnimals();
+
+            return;
+        }
+
+
+        /* PERFIL */
+
+        if (profileButton) {
+
+            const id =
+                Number(
+                    profileButton.dataset.profile
+                );
+
+
+            openProfile(id);
+
+        }
+
+    }
+);
+
+
+/* ========================================
+   FILTRO DE FAVORITOS
+======================================== */
+
+favoritesFilter.addEventListener(
+    "click",
+    () => {
+
+        showFavorites =
+            !showFavorites;
+
+
+        favoritesFilter.classList.toggle(
+            "active",
+            showFavorites
+        );
+
+
+        renderAnimals();
+
+    }
+);
+
+
+/* ========================================
+   LIMPAR FILTROS
+======================================== */
+
+clearFilters.addEventListener(
+    "click",
+    () => {
+
+        searchInput.value = "";
+
+        speciesFilter.value =
+            "todos";
+
+        ageFilter.value =
+            "todas";
+
+        sizeFilter.value =
+            "todos";
+
+        showFavorites =
+            false;
+
+
+        favoritesFilter.classList.remove(
+            "active"
+        );
+
+
+        renderAnimals();
+
+    }
+);
+
+
+/* ========================================
+   BOTÕES DE FECHAR MODAL
+======================================== */
+
+document
+    .querySelectorAll("[data-close]")
+    .forEach((button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const modalId =
+                    button.dataset.close;
+
+                const modal =
+                    document.getElementById(
+                        modalId
+                    );
+
+                closeModal(modal);
+
+            }
+        );
+
+    });
+
+
+/* ========================================
+   FECHAR MODAL CLICANDO FORA
+======================================== */
+
+document
+    .querySelectorAll(".modal")
+    .forEach((modal) => {
+
+        modal.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    closeModal(modal);
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* ========================================
+   BOTÃO "QUERO ADOTAR"
+======================================== */
+
+adoptButton.addEventListener(
+    "click",
+    openAdoption
+);
+
+
+/* ========================================
+   FORMULÁRIO DE ADOÇÃO
+======================================== */
+
+adoptionForm.addEventListener(
+    "submit",
+    (event) => {
+
+        event.preventDefault();
+
+
+        adoptionForm.classList.add(
+            "hidden"
+        );
+
+
+        successMessage.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+
+/* ========================================
+   MENU MOBILE
+======================================== */
+
+menuToggle.addEventListener(
+    "click",
+    () => {
+
+        menu.classList.toggle(
+            "open"
+        );
+
+    }
+);
+
+
+/* ========================================
+   FECHAR MENU AO CLICAR EM LINK
+======================================== */
+
+document
+    .querySelectorAll(".menu a")
+    .forEach((link) => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                menu.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* ========================================
+   TECLA ESC FECHA MODAIS
+======================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (event.key !== "Escape") {
+            return;
+        }
+
+
+        document
+            .querySelectorAll(
+                ".modal:not(.hidden)"
+            )
+            .forEach((modal) => {
+
+                closeModal(modal);
+
+            });
+
+    }
+);
+
+
+/* ========================================
+   INICIALIZAÇÃO
+======================================== */
 
 updateFavoritesCount();
+
 renderAnimals();
